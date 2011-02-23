@@ -1,0 +1,18 @@
+Source: rvm
+Section: interpreters
+Priority: extra
+Maintainer: Aman Gupta <aman@tmm1.net>
+Build-Depends: debhelper (>= 7), curl, git-core, libreadline-dev, build-essential, bison, libssl-dev, zlib1g-dev, libyaml-dev, libsqlite3-dev, libxml2-dev, libxslt-dev, libc6-dev, g++, openjdk-6-jre-headless
+Standards-Version: 3.7.3
+Homepage: http://rvm.beginrescueend.com/
+
+Package: rvm
+Architecture: any
+Depends: curl, git-core, libreadline-dev, build-essential, bison, libssl-dev, zlib1g-dev, libyaml-dev, libsqlite3-dev, libxml2-dev, libxslt-dev, libc6-dev, g++, openjdk-6-jre-headless, libmysqlclient-dev
+Description: Ruby Version Manager (RVM) is a command line tool
+  which allows you to easily install, manage and work with multiple
+  ruby environments from interpreters to sets of gems.
+  .
+  This debian package includes pre-compiled versions of the latest
+  1.8.7, 1.9.2, REE and JRuby builds as of its packaging. Additional
+  versions can be installed and managed via rvm itself.

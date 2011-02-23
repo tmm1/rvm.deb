@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ $EUID -ne 0 ]]; then
+  echo '*** rvm was not sourced into your shell- run `source /usr/lib/rvm/scripts/rvm`'
+else
+  source /usr/lib/rvm/scripts/rvm
+  rvm "$@"
+fi
