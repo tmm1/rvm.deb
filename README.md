@@ -8,10 +8,7 @@
 
 ## usage
 
-    $ wget ...
-    $ sudo dpkg -i rvm*.deb   # this will fail due to missing deps
-    $ sudo apt-get -f install # install those deps automatically
-    $ sudo dpkg -i rvm*.deb   # install the package
+    $ apt-get install rvm
 
 ## building
 
@@ -34,5 +31,8 @@ build the package:
 
 install the newly built .deb:
 
-    $ sudo dpkg -i /var/cache/pbuilder/result/rvm*.deb
+    $ cp /var/cache/pbuilder/result/rvm*.deb .
+    $ sudo dpkg -i rvm*.deb   # this will fail due to missing deps
+    $ sudo apt-get -f install # install those deps automatically
+    $ sudo dpkg -i rvm*.deb   # install the package
 
