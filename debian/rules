@@ -58,7 +58,7 @@ install: build
 	cp etc/rvmrc $(DESTDIR)/etc/
 	cp etc/gemrc $(DESTDIR)/etc/
 	
-	mkdir -p /usr/lib/rvm/config/
+	mkdir -p /usr/lib/rvm/config/ /usr/lib/rvm/hooks/
 	cp usr/lib/rvm/config/system /usr/lib/rvm/config/
 	cp usr/lib/rvm/hooks/after_use /usr/lib/rvm/hooks/
 	
