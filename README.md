@@ -1,6 +1,6 @@
 # rvm.deb: a sane system-wide rvm installation for debian/ubuntu
 
-- rvm.deb provides a working ruby environment in a single package (rubygems, bundler, irb, rake, bundler, dev headers and debug symbols)
+- rvm.deb provides a working ruby environment in a single package (rubygems, irb, rake, bundler, dev headers and debug symbols)
 - rvm.deb comes pre-installed with the latest 1.8.7, 1.9.2, REE and JRuby
 - rvm.deb includes dev packages required for popular rubygems (like `libxslt-dev` and `libxml2-dev` for `nokogiri`)
 - rvm.deb plays nice with debian's `ruby1.8` via `rvm use system`
