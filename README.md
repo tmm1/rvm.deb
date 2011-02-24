@@ -28,16 +28,20 @@ to install and use rubinius:
 
 rvm does not provide a separate build vs install step, so the only way to package it is by doing an actual system-wide rvm installation in a chroot.
 
-first, setup a chroot environment with pbuilder:
+install pbuilder:
 
     $ sudo apt-get install pbuilder
+
+pick a distro, and give rvm root access inside the chroot so it can do a system-wide install:
+
+    $ echo "DISTRIBUTION=lenny"  > .pbuilderrc
+    $ echo "BUILDUSERID=''"     >> .pbuilderrc
+    $ echo "BUILDUSERNAME=''"   >> .pbuilderrc
+
+create the chroot environment:
+
     $ sudo pbuilder create
     $ sudo pbuilder --update
-
-give rvm root access inside the chroot so it can do a system-wide install:
-
-    $ echo "BUILDUSERID=''"    > .pbuilderrc
-    $ echo "BUILDUSERNAME=''" >> .pbuilderrc
 
 build the package:
 
