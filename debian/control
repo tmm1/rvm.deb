@@ -8,7 +8,7 @@ Homepage: http://rvm.beginrescueend.com/
 
 Package: rvm
 Architecture: any
-Depends: curl, git-core, libreadline-dev, build-essential, bison, libssl-dev, zlib1g-dev, libyaml-dev, libsqlite3-dev, libxml2-dev, libxslt-dev, libc6-dev, g++, openjdk-6-jre-headless, libmysqlclient-dev, ruby1.8, irb1.8, rubygems1.8
+Depends: curl, git-core, libreadline-dev, build-essential, bison, libssl-dev, zlib1g-dev, libyaml-dev, libsqlite3-dev, libxml2-dev, libxslt-dev, libc6-dev, g++, openjdk-6-jre-headless, libmysqlclient-dev, ruby1.8, irb1.8, rubygems1.8, libruby1.8-dbg
 Replaces: ruby, rdoc, ri, irb, rubygems
 Conflicts: ruby, rdoc, ri, irb, rubygems
 Description: Ruby Version Manager (RVM) is a command line tool
