@@ -1,0 +1,25 @@
+#!/bin/sh
+# postinst script for #PACKAGE#
+
+set -e
+
+case "$1" in
+  configure)
+    update-alternatives \
+      --quiet \
+      --install \
+        /usr/bin/gem \
+        gem \
+        /usr/lib/rvm/rubies/default/bin/gem \
+        500
+    update-alternatives \
+      --set \
+        gem \
+        /usr/lib/rvm/rubies/default/bin/gem
+    ;;
+  *)
+esac
+
+#DEBHELPER#
+
+exit 0

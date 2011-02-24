@@ -41,7 +41,7 @@ install: build
 	
 	mkdir -p $(DESTDIR)/usr/bin
 	cp usr/bin/rvm $(DESTDIR)/usr/bin/rvm
-	for bin in gem irb rdoc ri jruby ruby bundle; do \
+	for bin in ruby irb rdoc ri jruby bundle; do \
 		ln -sf /usr/lib/rvm/rubies/default/bin/$$bin $(DESTDIR)/usr/bin/$$bin; \
 	done
 	

@@ -1,0 +1,15 @@
+#!/bin/sh
+# prerm script for #PACKAGE#
+
+set -e
+
+case "$1" in
+  remove|deconfigure)
+    update-alternatives --quiet --remove gem /usr/lib/rvm/rubies/default/bin/gem
+    ;;
+  *)
+esac
+
+#DEBHELPER#
+
+exit 0
