@@ -1,0 +1,3 @@
+export MY_RUBY_HOME=/usr/lib/rvm/debian
+export GEM_HOME=/var/lib/gems/1.8
+export GEM_PATH=$GEM_HOME

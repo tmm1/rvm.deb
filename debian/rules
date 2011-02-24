@@ -31,7 +31,16 @@ install: build
 	echo "bundler" >> /usr/lib/rvm/src/rvm/gemsets/global.gems
 	cd /usr/lib/rvm/src/rvm && ./install
 	
-	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install 1.8.7 && rvm --default 1.8.7'
+	mkdir -p /usr/lib/rvm/debian/bin/
+	ln -sf /usr/bin/ruby1.8 /usr/lib/rvm/debian/bin/ruby
+	ln -sf /usr/bin/irb1.8  /usr/lib/rvm/debian/bin/irb
+	ln -sf /usr/bin/ri1.8   /usr/lib/rvm/debian/bin/ri
+	ln -sf /usr/bin/rdoc1.8 /usr/lib/rvm/debian/bin/rdoc
+	ln -sf /usr/bin/gem1.8  /usr/lib/rvm/debian/bin/gem
+	
+	ln -sf /usr/lib/rvm/debian /usr/lib/rvm/rubies/default
+	
+	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install 1.8.7'
 	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install 1.9.2'
 	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install ree'
 	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install jruby'
@@ -48,6 +57,10 @@ install: build
 	mkdir -p $(DESTDIR)/etc/
 	cp etc/rvmrc $(DESTDIR)/etc/
 	cp etc/gemrc $(DESTDIR)/etc/
+	
+	mkdir -p /usr/lib/rvm/config/
+	cp usr/lib/rvm/config/system /usr/lib/rvm/config/
+	cp usr/lib/rvm/hooks/after_use /usr/lib/rvm/hooks/
 	
 	mkdir -p $(DESTDIR)/usr/share/man/man1/
 	cp $(DESTDIR)/usr/lib/rvm/src/rvm/man/man1/*.gz $(DESTDIR)/usr/share/man/man1/

@@ -3,6 +3,18 @@
 if [[ $EUID -ne 0 ]]; then
   echo '*** rvm was not sourced into your shell- run `source /usr/lib/rvm/scripts/rvm`'
 else
-  source /usr/lib/rvm/scripts/rvm
-  rvm "$@"
+  case "$1" in
+    use)
+      echo '*** rvm was not sourced into your shell- run `source /usr/lib/rvm/scripts/rvm`'
+      ;;
+    *)
+      source /usr/lib/rvm/scripts/rvm
+      before=$rvm_ruby_string
+      rvm "$@"
+      if [[ "a$before" != "a$rvm_ruby_string" && "a$rvm_ruby_string" = "a" ]]; then
+        ln -sf /usr/lib/rvm/debian /usr/lib/rvm/rubies/default
+      fi
+  esac
 fi
+
+exit 0

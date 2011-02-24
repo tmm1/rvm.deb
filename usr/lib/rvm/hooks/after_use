@@ -1,0 +1,4 @@
+#!/bin/bash
+if [[ "$rvm_ruby_string" = "system" ]]; then
+  export PATH="/usr/lib/rvm/debian/bin:$PATH"
+fi
