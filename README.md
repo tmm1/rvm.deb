@@ -10,6 +10,20 @@
 
     $ apt-get install rvm
 
+by default, `/usr/bin/ruby` points to debian's `ruby1.8`. to use REE by default system-wide:
+
+    $ sudo rvm --default ree
+
+to use jruby without making it the system default:
+
+    $ source /usr/lib/rvm/scripts/rvm    # or put this in your ~/.{profile,bashrc,bash_profile,bash_login,zshrc}
+    $ rvm use jruby
+
+to install and use rubinius:
+
+    $ sudo rvm install rbx
+    $ rvm use rbx
+
 ## building
 
 rvm does not provide a separate build vs install step, so the only way to package it is by doing an actual system-wide rvm installation in a chroot.
