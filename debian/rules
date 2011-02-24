@@ -76,7 +76,7 @@ binary-arch: build install
 	dh_compress
 	dh_fixperms
 	dh_installdeb
-	dh_shlibdeps -Xjruby
+	dh_shlibdeps -Xjruby -Xdistro/runtime
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
