@@ -32,25 +32,32 @@ install: build
 	cd /usr/lib/rvm/src/rvm && ./install
 	
 	mkdir -p /usr/lib/rvm/debian/bin/
+	ln -sf /usr/lib/rvm/debian /usr/lib/rvm/rubies/default
 	ln -sf /usr/bin/ruby1.8 /usr/lib/rvm/debian/bin/ruby
 	ln -sf /usr/bin/irb1.8  /usr/lib/rvm/debian/bin/irb
 	ln -sf /usr/bin/ri1.8   /usr/lib/rvm/debian/bin/ri
 	ln -sf /usr/bin/rdoc1.8 /usr/lib/rvm/debian/bin/rdoc
 	ln -sf /usr/bin/gem1.8  /usr/lib/rvm/debian/bin/gem
 	
-	ln -sf /usr/lib/rvm/debian /usr/lib/rvm/rubies/default
+	mkdir -p $(DESTDIR)/usr/bin/ $(DESTDIR)/usr/lib/ruby/1.8/ $(DESTDIR)/etc/bash_completion.d $(DESTDIR)/usr/share/man/man1/
+	cp /usr/bin/rake $(DESTDIR)/usr/bin/rake1.8
+	sed -i -e 's,/usr/bin/env ruby,/usr/bin/ruby1.8,' $(DESTDIR)/usr/bin/rake1.8
+	cp -R /usr/lib/ruby/1.8/rake* $(DESTDIR)/usr/lib/ruby/1.8/
+	cp /usr/share/man/man1/rake.1.gz $(DESTDIR)/usr/share/man/man1/
+	cp /etc/bash_completion.d/rake $(DESTDIR)/etc/bash_completion.d/rake
+	ln -sf /usr/bin/rake1.8  /usr/lib/rvm/debian/bin/rake
 	
-	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install 1.8.7'
-	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install 1.9.2'
+	#bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install 1.8.7'
+	#bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install 1.9.2'
 	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install ree'
-	bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install jruby'
+	#bash -c 'source /usr/lib/rvm/scripts/rvm && rvm install jruby'
 	
 	mkdir -p $(DESTDIR)/usr/lib
 	mv /usr/lib/rvm $(DESTDIR)/usr/lib/
 	
 	mkdir -p $(DESTDIR)/usr/bin
 	cp usr/bin/rvm $(DESTDIR)/usr/bin/rvm
-	for bin in ruby irb rdoc ri jruby bundle; do \
+	for bin in rake ruby irb rdoc ri jruby bundle; do \
 		ln -sf /usr/lib/rvm/rubies/default/bin/$$bin $(DESTDIR)/usr/bin/$$bin; \
 	done
 	

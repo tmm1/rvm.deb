@@ -6,6 +6,8 @@ set -e
 case "$1" in
   remove|deconfigure)
     update-alternatives --quiet --remove gem /usr/lib/rvm/rubies/default/bin/gem
+    update-alternatives --auto gem
+    echo '*** to restore debian ruby wrapper, `sudo apt-get install ruby irb rake rdoc`'
     ;;
   *)
 esac
