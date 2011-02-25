@@ -34,9 +34,10 @@ install pbuilder:
 
 pick a distro, and give rvm root access inside the chroot so it can do a system-wide install:
 
-    $ echo "DISTRIBUTION=lenny"  > ~/.pbuilderrc
-    $ echo "BUILDUSERID=''"     >> ~/.pbuilderrc
-    $ echo "BUILDUSERNAME=''"   >> ~/.pbuilderrc
+    $ echo "DISTRIBUTION=lenny"         > ~/.pbuilderrc
+    $ echo "EXTRAPACKAGES='debhelper'" >> ~/.pbuilderrc
+    $ echo "BUILDUSERID=''"            >> ~/.pbuilderrc
+    $ echo "BUILDUSERNAME=''"          >> ~/.pbuilderrc
 
 create the chroot environment:
 
