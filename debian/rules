@@ -15,7 +15,7 @@ DESTDIR ?= $(CURDIR)/debian/rvm
 
 export rvm_selfcontained=1
 export rvm_ignore_rvmrc=1
-export rvm_path=/usr/lib/rvm/
+export rvm_path=/usr/lib/rvm
 export rvm_man_path=/usr/share/man
 export rvm_prefix=/usr/lib/rvm
 
